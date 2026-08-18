@@ -16,12 +16,12 @@
  * any concrete provider or tag class by name. Adding a new Field Type Provider
  * (e.g. a "Flexible Content" provider in v2) requires zero changes here.
  *
- * @package LoopDynamicFields\Integrations\Elementor
+ * @package LoopSyncDynamicFields\Integrations\Elementor
  */
 
-namespace LoopDynamicFields\Integrations\Elementor;
+namespace LoopSyncDynamicFields\Integrations\Elementor;
 
-use LoopDynamicFields\FieldProviders\Provider_Registry;
+use LoopSyncDynamicFields\FieldProviders\Provider_Registry;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -79,7 +79,7 @@ final class Loader {
 
 		add_action(
 			'elementor/dynamic_tags/register',
-			[ $registrar, 'register_all' ]
+			array( $registrar, 'register_all' )
 		);
 	}
 
@@ -113,7 +113,7 @@ final class Loader {
 		add_action(
 			'elementor/editor/before_enqueue_styles',
 			static function (): void {
-				$editor_css = LDF_DIR . 'assets/editor.css';
+				$editor_css = LSDFE_DIR . 'assets/editor.css';
 
 				// Only enqueue if the compiled stylesheet exists.
 				// During development it may not exist yet.
@@ -122,10 +122,10 @@ final class Loader {
 				}
 
 				wp_enqueue_style(
-					'ldf-editor',
-					LDF_URL . 'assets/editor.css',
-					[],
-					LDF_VERSION
+					'lsdfe-editor',
+					LSDFE_URL . 'assets/editor.css',
+					array(),
+					LSDFE_VERSION
 				);
 			}
 		);

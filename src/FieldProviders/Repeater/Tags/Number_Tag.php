@@ -8,10 +8,10 @@
  * Listed under NUMBER_CATEGORY so it's available in Elementor controls that
  * accept numeric dynamic tags (e.g. counter widget end-value).
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -28,14 +28,14 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-number';
+		return 'lsdfe-repeater-number';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Number', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Number', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -45,17 +45,17 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * TEXT_CATEGORY also included so it works in plain-text widget contexts.
 	 */
 	public function get_categories(): array {
-		return [
+		return array(
 			\Elementor\Modules\DynamicTags\Module::NUMBER_CATEGORY,
 			\Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY,
-		];
+		);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'number', 'range' ];
+		return array( 'number', 'range' );
 	}
 
 	/**

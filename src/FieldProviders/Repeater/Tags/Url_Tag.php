@@ -14,13 +14,13 @@
  *
  * get_value() normalises all of these to a plain URL string.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopDynamicFields\Runtime\Row_Context;
+use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LoopSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -37,14 +37,14 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-url';
+		return 'lsdfe-repeater-url';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: URL / Link', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: URL / Link', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -61,10 +61,10 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * TEXT_CATEGORY: also usable as plain text output.
 	 */
 	public function get_categories(): array {
-		return [
+		return array(
 			\Elementor\Modules\DynamicTags\Module::URL_CATEGORY,
 			\Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY,
-		];
+		);
 	}
 
 	/**
@@ -73,7 +73,7 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * @return string[]
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'url', 'link', 'page_link', 'file' ];
+		return array( 'url', 'link', 'page_link', 'file' );
 	}
 
 	// ------------------------------------------------------------------
@@ -96,14 +96,14 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 
 		$this->add_control(
 			Sub_Field_Resolver::CTRL_SUB_FIELD,
-			[
-				'label'              => esc_html__( 'URL / Link Sub-field', 'loop-dynamic-fields-for-elementor' ),
+			array(
+				'label'              => esc_html__( 'URL / Link Sub-field', 'loopsync-dynamic-fields-for-elementor' ),
 				'type'               => \Elementor\Controls_Manager::SELECT,
 				'groups'             => $grouped_options,
 				'default'            => '',
-				'description'        => esc_html__( 'Select the URL, Link, Page Link, or File sub-field from your ACF Repeater.', 'loop-dynamic-fields-for-elementor' ),
+				'description'        => esc_html__( 'Select the URL, Link, Page Link, or File sub-field from your ACF Repeater.', 'loopsync-dynamic-fields-for-elementor' ),
 				'frontend_available' => true,
-			]
+			)
 		);
 	}
 
@@ -120,7 +120,7 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * @param array<string, mixed> $options Unused; part of Data_Tag contract.
 	 * @return string A sanitised URL, or '' if not resolvable.
 	 */
-	public function get_value( array $options = [] ): string {
+	public function get_value( array $options = array() ): string {
 		$sub_field_key = sanitize_key( $this->get_settings( Sub_Field_Resolver::CTRL_SUB_FIELD ) );
 		if ( empty( $sub_field_key ) ) {
 			return '';

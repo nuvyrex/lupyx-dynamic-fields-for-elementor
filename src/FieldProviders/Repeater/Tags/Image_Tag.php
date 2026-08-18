@@ -20,13 +20,13 @@
  * just to share 25 lines. Document clearly and revisit in v2 if more Data_Tag
  * subclasses are added.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopDynamicFields\Runtime\Row_Context;
+use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LoopSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -43,14 +43,14 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-image';
+		return 'lsdfe-repeater-image';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Image', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Image', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * control and any other control that accepts an image dynamic tag.
 	 */
 	public function get_categories(): array {
-		return [ \Elementor\Modules\DynamicTags\Module::IMAGE_CATEGORY ];
+		return array( \Elementor\Modules\DynamicTags\Module::IMAGE_CATEGORY );
 	}
 
 	/**
@@ -76,7 +76,7 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * @return string[]
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'image' ];
+		return array( 'image' );
 	}
 
 	// ------------------------------------------------------------------
@@ -99,14 +99,14 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 
 		$this->add_control(
 			Sub_Field_Resolver::CTRL_SUB_FIELD,
-			[
-				'label'              => esc_html__( 'Image Sub-field', 'loop-dynamic-fields-for-elementor' ),
+			array(
+				'label'              => esc_html__( 'Image Sub-field', 'loopsync-dynamic-fields-for-elementor' ),
 				'type'               => \Elementor\Controls_Manager::SELECT,
 				'groups'             => $grouped_options,
 				'default'            => '',
-				'description'        => esc_html__( 'Select the image sub-field from your ACF Repeater.', 'loop-dynamic-fields-for-elementor' ),
+				'description'        => esc_html__( 'Select the image sub-field from your ACF Repeater.', 'loopsync-dynamic-fields-for-elementor' ),
 				'frontend_available' => true,
-			]
+			)
 		);
 	}
 
@@ -123,8 +123,11 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * @param array<string, mixed> $options Unused; part of Data_Tag contract.
 	 * @return array{id: int|null, url: string}
 	 */
-	public function get_value( array $options = [] ): array {
-		$empty = [ 'id' => null, 'url' => '' ];
+	public function get_value( array $options = array() ): array {
+		$empty = array(
+			'id'  => null,
+			'url' => '',
+		);
 
 		$sub_field_key = sanitize_key( $this->get_settings( Sub_Field_Resolver::CTRL_SUB_FIELD ) );
 		if ( empty( $sub_field_key ) ) {
@@ -138,27 +141,27 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 
 		// ACF "Image Array" return format.
 		if ( is_array( $raw ) && isset( $raw['ID'], $raw['url'] ) ) {
-			return [
+			return array(
 				'id'  => (int) $raw['ID'],
 				'url' => esc_url_raw( $raw['url'] ),
-			];
+			);
 		}
 
 		// ACF "Image ID" return format.
 		if ( is_numeric( $raw ) ) {
 			$url = wp_get_attachment_url( (int) $raw );
-			return [
+			return array(
 				'id'  => (int) $raw,
 				'url' => $url ? esc_url_raw( $url ) : '',
-			];
+			);
 		}
 
 		// ACF "Image URL" return format.
 		if ( is_string( $raw ) && '' !== $raw ) {
-			return [
+			return array(
 				'id'  => null,
 				'url' => esc_url_raw( $raw ),
-			];
+			);
 		}
 
 		return $empty;

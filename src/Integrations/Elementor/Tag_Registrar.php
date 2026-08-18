@@ -12,12 +12,12 @@
  *  - Driven entirely by Field_Type_Contract::get_tag_descriptors()
  *    and Tag_Descriptor::get_tag_class_name().
  *
- * @package LoopDynamicFields\Integrations\Elementor
+ * @package LoopSyncDynamicFields\Integrations\Elementor
  */
 
-namespace LoopDynamicFields\Integrations\Elementor;
+namespace LoopSyncDynamicFields\Integrations\Elementor;
 
-use LoopDynamicFields\FieldProviders\Provider_Registry;
+use LoopSyncDynamicFields\FieldProviders\Provider_Registry;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -44,7 +44,7 @@ final class Tag_Registrar {
 	 *
 	 * @var array<string, true>
 	 */
-	private array $registered = [];
+	private array $registered = array();
 
 	/**
 	 * Constructor.

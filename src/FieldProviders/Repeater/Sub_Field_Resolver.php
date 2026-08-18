@@ -7,12 +7,12 @@
  * Centralising these methods here prevents code duplication across the tag
  * hierarchy and keeps Row_Context access in one place.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater;
 
-use LoopDynamicFields\Runtime\Row_Context;
+use LoopSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -35,7 +35,7 @@ final class Sub_Field_Resolver {
 	 *
 	 * @var string
 	 */
-	const CTRL_SUB_FIELD = 'ldf_repeater_sub_field';
+	const CTRL_SUB_FIELD = 'lsdfe_repeater_sub_field';
 
 	/**
 	 * Private constructor — this class is a static utility; never instantiate it.
@@ -46,7 +46,7 @@ final class Sub_Field_Resolver {
 	 * Resolves the value of an ACF repeater sub-field for the current row.
 	 *
 	 * Strategy:
-	 *  1. If current global $post is our virtual post carrying pre-loaded ldf_row_data,
+	 *  1. If current global $post is our virtual post carrying pre-loaded lsdfe_row_data,
 	 *     extract the value directly from memory (O(1), zero DB overhead).
 	 *  2. Otherwise resolve via Row_Context (or fallback to get_the_ID() row 0 when
 	 *     previewing inside the Elementor Loop Item Template editor).
@@ -63,17 +63,17 @@ final class Sub_Field_Resolver {
 		global $post;
 
 		// 1. Direct in-memory lookup if global $post is our virtual post carrying row data
-		if ( isset( $post->ldf_provider_key ) && 'repeater' === $post->ldf_provider_key && isset( $post->ldf_row_data ) && is_array( $post->ldf_row_data ) ) {
+		if ( isset( $post->lsdfe_provider_key ) && 'repeater' === $post->lsdfe_provider_key && isset( $post->lsdfe_row_data ) && is_array( $post->lsdfe_row_data ) ) {
 			// Resolve field name from key if needed
-			$sub_field = function_exists( 'acf_get_field' ) ? acf_get_field( $sub_field_key ) : null;
+			$sub_field      = function_exists( 'acf_get_field' ) ? acf_get_field( $sub_field_key ) : null;
 			$sub_field_name = $sub_field['name'] ?? $sub_field_key;
 
-			if ( isset( $post->ldf_row_data[ $sub_field_name ] ) ) {
-				return $post->ldf_row_data[ $sub_field_name ];
+			if ( isset( $post->lsdfe_row_data[ $sub_field_name ] ) ) {
+				return $post->lsdfe_row_data[ $sub_field_name ];
 			}
 
-			if ( isset( $post->ldf_row_data[ $sub_field_key ] ) ) {
-				return $post->ldf_row_data[ $sub_field_key ];
+			if ( isset( $post->lsdfe_row_data[ $sub_field_key ] ) ) {
+				return $post->lsdfe_row_data[ $sub_field_key ];
 			}
 		}
 
@@ -99,7 +99,7 @@ final class Sub_Field_Resolver {
 				$sub_field_name = $sub_field['name'];
 
 				// Determine parent repeater name
-				$parent_field = ! empty( $sub_field['parent'] ) ? acf_get_field( $sub_field['parent'] ) : null;
+				$parent_field  = ! empty( $sub_field['parent'] ) ? acf_get_field( $sub_field['parent'] ) : null;
 				$repeater_name = ( $parent_field && 'repeater' === ( $parent_field['type'] ?? '' ) )
 					? ( $parent_field['name'] ?? '' )
 					: '';
@@ -149,8 +149,8 @@ final class Sub_Field_Resolver {
 	 *                                  Pass an empty array to include all types.
 	 * @return array<int, array{label: string, options: array<string, string>}>
 	 */
-	public static function build_sub_field_options( array $supported_types = [] ): array {
-		$grouped = [];
+	public static function build_sub_field_options( array $supported_types = array() ): array {
+		$grouped = array();
 
 		if ( ! function_exists( 'acf_get_field_groups' ) || ! function_exists( 'acf_get_fields' ) ) {
 			return $grouped;
@@ -169,7 +169,7 @@ final class Sub_Field_Resolver {
 					continue;
 				}
 
-				$sub_options = [];
+				$sub_options = array();
 
 				foreach ( $field['sub_fields'] as $sf ) {
 					if ( ! empty( $supported_types )
@@ -182,10 +182,10 @@ final class Sub_Field_Resolver {
 				}
 
 				if ( ! empty( $sub_options ) ) {
-					$grouped[] = [
+					$grouped[] = array(
 						'label'   => esc_html( $field['label'] ),
 						'options' => $sub_options,
-					];
+					);
 				}
 			}
 		}

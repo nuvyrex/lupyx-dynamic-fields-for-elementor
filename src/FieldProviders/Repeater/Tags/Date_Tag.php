@@ -9,10 +9,10 @@
  *
  * Output is escaped with esc_html() as the value is always a plain string.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -29,28 +29,28 @@ final class Date_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-date';
+		return 'lsdfe-repeater-date';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Date / Time', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Date / Time', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_categories(): array {
-		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'date_picker', 'date_time_picker', 'time_picker' ];
+		return array( 'date_picker', 'date_time_picker', 'time_picker' );
 	}
 
 	/**

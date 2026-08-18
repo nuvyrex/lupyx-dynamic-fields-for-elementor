@@ -1,29 +1,29 @@
 {
-    "name": "yourvendor/loop-dynamic-fields-for-elementor",
-    "description": "Render ACF Pro field data inside Elementor Pro's Loop Grid widget using a filter-driven Field Type Provider architecture.",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later",
-    "require": {
-        "php": ">=7.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "LoopDynamicFields\\": "src/"
-        }
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "sort-packages": true,
-        "platform": {
-            "php": "7.4"
-        }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "@composer dump-autoload --optimize"
-        ],
-        "post-update-cmd": [
-            "@composer dump-autoload --optimize"
-        ]
+  "name": "yourvendor/loopsync-dynamic-fields-for-elementor",
+  "description": "Render ACF Pro field data inside Elementor Pro's Loop Grid widget using a filter-driven Field Type Provider architecture.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "LoopSyncDynamicFields\\": "src/"
     }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@composer dump-autoload --optimize"
+    ],
+    "post-update-cmd": [
+      "@composer dump-autoload --optimize"
+    ]
+  }
 }

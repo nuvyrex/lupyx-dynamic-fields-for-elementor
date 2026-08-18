@@ -10,10 +10,10 @@
  * gives us a typed, self-documenting API that can be extended with additional
  * metadata (e.g. icon, category overrides) in future without changing the contract.
  *
- * @package LoopDynamicFields\FieldProviders
+ * @package LoopSyncDynamicFields\FieldProviders
  */
 
-namespace LoopDynamicFields\FieldProviders;
+namespace LoopSyncDynamicFields\FieldProviders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

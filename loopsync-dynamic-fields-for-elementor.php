@@ -3,11 +3,11 @@
  * Plugin Name:       LoopSync Dynamic Fields for Elementor
  * Plugin URI:        https://github.com/nuvyrex/loopsync-dynamic-fields-for-elementor
  * Description:       Render ACF Pro field data (Repeater and more) inside Elementor Pro's Loop Grid widget — no code required. Built on a filter-driven Field Type Provider architecture for easy extension.
- * Version:           0.0.0
+ * Version:           0.0.1
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
- * Author:            Your Name
+ * Author:            devnexus
  * Author URI:        https://github.com/nuvyrex
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ---------------------------------------------------------------------------
 
 /** @var string Plugin version. */
-define( 'LSDFE_VERSION', '0.0.0' );
+define( 'LSDFE_VERSION', '0.0.1' );
 
 /** @var string Absolute path to the main plugin file. */
 define( 'LSDFE_FILE', __FILE__ );

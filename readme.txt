@@ -1,11 +1,10 @@
 === LoopSync Dynamic Fields for Elementor ===
-Contributors: yourname
-Donate link: https://yoursite.com/
+Contributors: devnexus
 Tags: elementor, acf, repeater, loop grid, dynamic tags
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.0.0
+Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +88,10 @@ Yes. The plugin uses an extensible `Field_Type_Contract` provider interface with
 
 
 == Upgrade Notice ==
+
+= 0.0.1 =
+Update plugin name, Slug & Prefix.
+Update Author & Plugin URI.
 
 = 0.0.0 =
 Initial development release.

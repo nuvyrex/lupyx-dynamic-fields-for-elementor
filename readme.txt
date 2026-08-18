@@ -1,4 +1,4 @@
-=== Loop Dynamic Fields for Elementor ===
+=== LoopSync Dynamic Fields for Elementor ===
 Contributors: yourname
 Donate link: https://yoursite.com/
 Tags: elementor, acf, repeater, loop grid, dynamic tags
@@ -13,7 +13,7 @@ Render ACF Pro Repeater fields inside Elementor Pro's Loop Grid widget using ded
 
 == Description ==
 
-Loop Dynamic Fields for Elementor bridges the gap between **ACF Pro Repeater fields** and **Elementor Pro's Loop Grid widget**.
+LoopSync Dynamic Fields for Elementor bridges the gap between **ACF Pro Repeater fields** and **Elementor Pro's Loop Grid widget**.
 
 Elementor Pro's Loop Grid natively loops over WordPress posts, terms, or products. This plugin enables the Loop Grid to loop directly over rows of an ACF Pro Repeater field without creating mock posts, duplicate entries, or negative IDs.
 
@@ -42,7 +42,7 @@ Each repeater row seamlessly becomes an item in your Loop Grid, and dedicated El
 
 == Installation ==
 
-1. Upload the `loop-dynamic-fields-for-elementor` folder to the `/wp-content/plugins/` directory.
+1. Upload the `loopsync-dynamic-fields-for-elementor` folder to the `/wp-content/plugins/` directory.
 2. If installing from source, run `composer install --no-dev --optimize-autoloader` in the plugin directory to generate the autoloader.
 3. Activate the plugin through the **Plugins** menu in WordPress.
 4. Ensure **Elementor**, **Elementor Pro**, and **ACF Pro** are active.

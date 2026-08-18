@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Loop Dynamic Fields for Elementor
- * Plugin URI:        https://github.com/yourvendor/loop-dynamic-fields-for-elementor
+ * Plugin Name:       LoopSync Dynamic Fields for Elementor
+ * Plugin URI:        https://github.com/yourvendor/loopsync-dynamic-fields-for-elementor
  * Description:       Render ACF Pro field data (Repeater and more) inside Elementor Pro's Loop Grid widget — no code required. Built on a filter-driven Field Type Provider architecture for easy extension.
  * Version:           0.0.0
  * Requires at least: 6.5
@@ -11,7 +11,7 @@
  * Author URI:        https://yoursite.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       loop-dynamic-fields-for-elementor
+ * Text Domain:       loopsync-dynamic-fields-for-elementor
  *
  * @package LoopDynamicFields
  */
@@ -59,8 +59,8 @@ if ( file_exists( LDF_DIR . 'vendor/autoload.php' ) ) {
 			printf(
 				'<div class="notice notice-error"><p>%s</p></div>',
 				esc_html__(
-					'Loop Dynamic Fields for Elementor: Composer autoloader not found. Run "composer install" inside the plugin directory.',
-					'loop-dynamic-fields-for-elementor'
+					'LoopSync Dynamic Fields for Elementor: Composer autoloader not found. Run "composer install" inside the plugin directory.',
+					'loopsync-dynamic-fields-for-elementor'
 				)
 			);
 		}

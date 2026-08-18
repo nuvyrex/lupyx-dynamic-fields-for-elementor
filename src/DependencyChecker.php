@@ -1,6 +1,6 @@
 <?php
 /**
- * Dependency checker for Loop Dynamic Fields for Elementor.
+ * Dependency checker for LoopSync Dynamic Fields for Elementor.
  *
  * Validates that Elementor, Elementor Pro, and ACF Pro are active and meet
  * minimum version requirements. The Plugin singleton calls passes() before
@@ -29,7 +29,7 @@ final class DependencyChecker {
 	 *
 	 * @var string[]
 	 */
-	private array $errors = [];
+	private array $errors = array();
 
 	/**
 	 * Runs all dependency checks.
@@ -55,7 +55,7 @@ final class DependencyChecker {
 	 * @return void
 	 */
 	public function register_admin_notices(): void {
-		add_action( 'admin_notices', [ $this, 'render_notices' ] );
+		add_action( 'admin_notices', array( $this, 'render_notices' ) );
 	}
 
 	/**
@@ -71,14 +71,14 @@ final class DependencyChecker {
 				'<div class="notice notice-error"><p>%s</p></div>',
 				wp_kses(
 					$message,
-					[
-						'strong' => [],
-						'a'      => [
-							'href'   => [],
-							'target' => [],
-							'rel'    => [],
-						],
-					]
+					array(
+						'strong' => array(),
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+					)
 				)
 			);
 		}
@@ -97,8 +97,8 @@ final class DependencyChecker {
 		if ( ! defined( 'ELEMENTOR_VERSION' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name. */
-				__( '%1$s requires %2$s to be installed and activated.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s to be installed and activated.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor</strong>'
 			);
 			return;
@@ -107,8 +107,8 @@ final class DependencyChecker {
 		if ( version_compare( ELEMENTOR_VERSION, LDF_MIN_ELEMENTOR, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
-				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor</strong>',
 				'<strong>' . esc_html( LDF_MIN_ELEMENTOR ) . '</strong>'
 			);
@@ -124,8 +124,8 @@ final class DependencyChecker {
 		if ( ! defined( 'ELEMENTOR_PRO_VERSION' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name. */
-				__( '%1$s requires %2$s to be installed and activated.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s to be installed and activated.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor Pro</strong>'
 			);
 			return;
@@ -134,8 +134,8 @@ final class DependencyChecker {
 		if ( version_compare( ELEMENTOR_PRO_VERSION, LDF_MIN_ELEMENTOR_PRO, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
-				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor Pro.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor Pro.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor Pro</strong>',
 				'<strong>' . esc_html( LDF_MIN_ELEMENTOR_PRO ) . '</strong>'
 			);
@@ -151,8 +151,8 @@ final class DependencyChecker {
 		if ( ! class_exists( 'ACF' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name. */
-				__( '%1$s requires %2$s to be installed and activated.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s to be installed and activated.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Advanced Custom Fields Pro</strong>'
 			);
 			return;
@@ -161,8 +161,8 @@ final class DependencyChecker {
 		if ( defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, LDF_MIN_ACF, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
-				__( '%1$s requires %2$s version %3$s or higher. Please update ACF Pro.', 'loop-dynamic-fields-for-elementor' ),
-				'<strong>' . esc_html__( 'Loop Dynamic Fields for Elementor', 'loop-dynamic-fields-for-elementor' ) . '</strong>',
+				__( '%1$s requires %2$s version %3$s or higher. Please update ACF Pro.', 'loopsync-dynamic-fields-for-elementor' ),
+				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Advanced Custom Fields Pro</strong>',
 				'<strong>' . esc_html( LDF_MIN_ACF ) . '</strong>'
 			);

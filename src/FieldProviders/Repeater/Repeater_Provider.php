@@ -76,7 +76,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * of this provider instance — once per request.
 	 */
 	public function __construct() {
-		add_action( 'the_post', [ $this, 'sync_row_context' ] );
+		add_action( 'the_post', array( $this, 'sync_row_context' ) );
 	}
 
 	// ------------------------------------------------------------------
@@ -94,7 +94,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * {@inheritDoc}
 	 */
 	public function get_handled_field_types(): array {
-		return [ 'repeater' ];
+		return array( 'repeater' );
 	}
 
 	/**
@@ -104,14 +104,14 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * The Elementor integration layer registers these without knowing class names.
 	 */
 	public function get_tag_descriptors(): array {
-		return [
+		return array(
 			new Tag_Descriptor( Tags\Text_Tag::class, 'acf' ),
 			new Tag_Descriptor( Tags\Wysiwyg_Tag::class, 'acf' ),
 			new Tag_Descriptor( Tags\Image_Tag::class, 'acf' ),
 			new Tag_Descriptor( Tags\Url_Tag::class, 'acf' ),
 			new Tag_Descriptor( Tags\Number_Tag::class, 'acf' ),
 			new Tag_Descriptor( Tags\Date_Tag::class, 'acf' ),
-		];
+		);
 	}
 
 	/**
@@ -125,37 +125,37 @@ final class Repeater_Provider implements Field_Type_Contract {
 	public function register_loop_controls( \Elementor\Element_Base $element ): void {
 		$element->add_control(
 			self::CTRL_ENABLED,
-			[
-				'label'        => esc_html__( 'Use ACF Repeater', 'loop-dynamic-fields-for-elementor' ),
-				'description'  => esc_html__( 'Loop over ACF Repeater rows instead of posts.', 'loop-dynamic-fields-for-elementor' ),
+			array(
+				'label'        => esc_html__( 'Use ACF Repeater', 'loopsync-dynamic-fields-for-elementor' ),
+				'description'  => esc_html__( 'Loop over ACF Repeater rows instead of posts.', 'loopsync-dynamic-fields-for-elementor' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
-			]
+			)
 		);
 
 		$element->add_control(
 			self::CTRL_FIELD,
-			[
-				'label'       => esc_html__( 'ACF Repeater Field', 'loop-dynamic-fields-for-elementor' ),
-				'description' => esc_html__( 'Select the Repeater field whose rows become Loop Grid items.', 'loop-dynamic-fields-for-elementor' ),
+			array(
+				'label'       => esc_html__( 'ACF Repeater Field', 'loopsync-dynamic-fields-for-elementor' ),
+				'description' => esc_html__( 'Select the Repeater field whose rows become Loop Grid items.', 'loopsync-dynamic-fields-for-elementor' ),
 				'type'        => \Elementor\Controls_Manager::SELECT,
 				'options'     => $this->get_repeater_field_options(),
 				'default'     => '',
-				'condition'   => [ self::CTRL_ENABLED => 'yes' ],
-			]
+				'condition'   => array( self::CTRL_ENABLED => 'yes' ),
+			)
 		);
 
 		$element->add_control(
 			self::CTRL_SCOPE,
-			[
-				'label'        => esc_html__( 'Current Post Only', 'loop-dynamic-fields-for-elementor' ),
-				'description'  => esc_html__( 'Show rows from the currently viewed post. Disable to aggregate rows from all posts matched by the Loop Grid query.', 'loop-dynamic-fields-for-elementor' ),
+			array(
+				'label'        => esc_html__( 'Current Post Only', 'loopsync-dynamic-fields-for-elementor' ),
+				'description'  => esc_html__( 'Show rows from the currently viewed post. Disable to aggregate rows from all posts matched by the Loop Grid query.', 'loopsync-dynamic-fields-for-elementor' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 				'return_value' => 'yes',
-				'condition'    => [ self::CTRL_ENABLED => 'yes' ],
-			]
+				'condition'    => array( self::CTRL_ENABLED => 'yes' ),
+			)
 		);
 	}
 
@@ -193,7 +193,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 				$current_id = get_queried_object_id();
 			}
 			if ( $current_id ) {
-				$args['post__in']  = [ $current_id ];
+				$args['post__in']  = array( $current_id );
 				$args['post_type'] = 'any';
 			}
 		}
@@ -220,7 +220,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 			return $posts;
 		}
 
-		$virtual_posts = [];
+		$virtual_posts = array();
 
 		foreach ( $posts as $post ) {
 			// get_field() is ACF's safe API; no raw SQL.
@@ -231,7 +231,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 			}
 
 			foreach ( $repeater_rows as $index => $row ) {
-				$virtual_posts[] = $this->make_virtual_post( $post, $field_name, $index, is_array( $row ) ? $row : [] );
+				$virtual_posts[] = $this->make_virtual_post( $post, $field_name, $index, is_array( $row ) ? $row : array() );
 			}
 		}
 
@@ -285,7 +285,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * @return array<string, string> field_name => label map.
 	 */
 	private function get_repeater_field_options(): array {
-		$options = [ '' => esc_html__( '— Select a Repeater Field —', 'loop-dynamic-fields-for-elementor' ) ];
+		$options = array( '' => esc_html__( '— Select a Repeater Field —', 'loopsync-dynamic-fields-for-elementor' ) );
 
 		if ( ! function_exists( 'acf_get_field_groups' ) || ! function_exists( 'acf_get_fields' ) ) {
 			return $options;
@@ -350,28 +350,28 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * @param int                $index      Zero-based row index.
 	 * @return \stdClass
 	 */
-	private function make_virtual_post( $post, string $field_name, int $index, array $row = [] ): \stdClass {
+	private function make_virtual_post( $post, string $field_name, int $index, array $row = array() ): \stdClass {
 		$v = new \stdClass();
 
 		// Unique negative ID for each virtual row to prevent Elementor from skipping duplicate post IDs.
 		$v->ID                    = -1 * (int) ( (string) $post->ID . '9999' . str_pad( (string) $index, 2, '0', STR_PAD_LEFT ) );
-		$v->post_author           = $post->post_author           ?? 0;
-		$v->post_date             = $post->post_date             ?? '';
-		$v->post_date_gmt         = $post->post_date_gmt         ?? '';
+		$v->post_author           = $post->post_author ?? 0;
+		$v->post_date             = $post->post_date ?? '';
+		$v->post_date_gmt         = $post->post_date_gmt ?? '';
 		$v->post_content          = '';
-		$v->post_title            = $post->post_title            ?? '';
+		$v->post_title            = $post->post_title ?? '';
 		$v->post_excerpt          = '';
 		$v->post_status           = 'publish';
 		$v->comment_status        = 'closed';
 		$v->ping_status           = 'closed';
 		$v->post_name             = ( $post->post_name ?? 'post' ) . '-row-' . $index;
-		$v->post_modified         = $post->post_modified         ?? '';
-		$v->post_modified_gmt     = $post->post_modified_gmt     ?? '';
+		$v->post_modified         = $post->post_modified ?? '';
+		$v->post_modified_gmt     = $post->post_modified_gmt ?? '';
 		$v->post_content_filtered = '';
 		$v->post_parent           = $post->ID;
 		$v->guid                  = '';
 		$v->menu_order            = $index;
-		$v->post_type             = $post->post_type             ?? 'post';
+		$v->post_type             = $post->post_type ?? 'post';
 		$v->post_mime_type        = '';
 		$v->comment_count         = 0;
 

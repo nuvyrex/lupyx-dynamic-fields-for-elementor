@@ -104,13 +104,13 @@ final class DependencyChecker {
 			return;
 		}
 
-		if ( version_compare( ELEMENTOR_VERSION, LDF_MIN_ELEMENTOR, '<' ) ) {
+		if ( version_compare( ELEMENTOR_VERSION, LSDFE_MIN_ELEMENTOR, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
 				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor.', 'loopsync-dynamic-fields-for-elementor' ),
 				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor</strong>',
-				'<strong>' . esc_html( LDF_MIN_ELEMENTOR ) . '</strong>'
+				'<strong>' . esc_html( LSDFE_MIN_ELEMENTOR ) . '</strong>'
 			);
 		}
 	}
@@ -131,13 +131,13 @@ final class DependencyChecker {
 			return;
 		}
 
-		if ( version_compare( ELEMENTOR_PRO_VERSION, LDF_MIN_ELEMENTOR_PRO, '<' ) ) {
+		if ( version_compare( ELEMENTOR_PRO_VERSION, LSDFE_MIN_ELEMENTOR_PRO, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
 				__( '%1$s requires %2$s version %3$s or higher. Please update Elementor Pro.', 'loopsync-dynamic-fields-for-elementor' ),
 				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Elementor Pro</strong>',
-				'<strong>' . esc_html( LDF_MIN_ELEMENTOR_PRO ) . '</strong>'
+				'<strong>' . esc_html( LSDFE_MIN_ELEMENTOR_PRO ) . '</strong>'
 			);
 		}
 	}
@@ -158,13 +158,13 @@ final class DependencyChecker {
 			return;
 		}
 
-		if ( defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, LDF_MIN_ACF, '<' ) ) {
+		if ( defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, LSDFE_MIN_ACF, '<' ) ) {
 			$this->errors[] = sprintf(
 				/* translators: 1: This plugin's name, 2: Required plugin name, 3: Minimum version. */
 				__( '%1$s requires %2$s version %3$s or higher. Please update ACF Pro.', 'loopsync-dynamic-fields-for-elementor' ),
 				'<strong>' . esc_html__( 'LoopSync Dynamic Fields for Elementor', 'loopsync-dynamic-fields-for-elementor' ) . '</strong>',
 				'<strong>Advanced Custom Fields Pro</strong>',
-				'<strong>' . esc_html( LDF_MIN_ACF ) . '</strong>'
+				'<strong>' . esc_html( LSDFE_MIN_ACF ) . '</strong>'
 			);
 		}
 	}

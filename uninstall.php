@@ -22,9 +22,9 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	// ---------------------------------------------------------------------------
 
 	$loop_dynamic_fields_options = array(
-		'ldf_version',
-		'ldf_install_date',
-		'ldf_initial_version',
+		'lsdfe_version',
+		'lsdfe_install_date',
+		'lsdfe_initial_version',
 	);
 
 	foreach ( $loop_dynamic_fields_options as $loop_dynamic_fields_option_name ) {
@@ -41,7 +41,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	// ---------------------------------------------------------------------------
 
 	$loop_dynamic_fields_transients = array(
-		'ldf_acf_field_cache',
+		'lsdfe_acf_field_cache',
 	);
 
 	foreach ( $loop_dynamic_fields_transients as $loop_dynamic_fields_transient_name ) {

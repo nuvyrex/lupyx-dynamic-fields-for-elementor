@@ -29,7 +29,7 @@ final class Date_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-date';
+		return 'lsdfe-repeater-date';
 	}
 
 	/**

@@ -12,7 +12,7 @@
  * stdClass "virtual posts" — one per repeater row. Each virtual post:
  *   - Carries the real parent post ID as $post->ID (positive, valid WP ID)
  *   - Has filter = 'raw' so WP_Post wraps it without a DB round-trip
- *   - Carries ldf_provider_key, ldf_row_index, ldf_parent_post_id as custom
+ *   - Carries lsdfe_provider_key, lsdfe_row_index, lsdfe_parent_post_id as custom
  *     properties (preserved by WP_Post::__construct via get_object_vars())
  *
  * The the_post action (sync_row_context) reads these properties and pushes
@@ -42,29 +42,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Repeater_Provider implements Field_Type_Contract {
 
 	// ------------------------------------------------------------------
-	// Constants — all prefixed ldf_ to avoid collisions.
+	// Constants — all prefixed lsdfe_ to avoid collisions.
 	// ------------------------------------------------------------------
 
 	/** @var string Provider key — used by Provider_Registry as the index. */
 	const PROVIDER_KEY = 'repeater';
 
 	/** @var string WP_Query var marking a query as repeater-expanded. */
-	const QUERY_VAR_ACTIVE = 'ldf_repeater_active';
+	const QUERY_VAR_ACTIVE = 'lsdfe_repeater_active';
 
 	/** @var string WP_Query var carrying the repeater field name. */
-	const QUERY_VAR_FIELD = 'ldf_repeater_field';
+	const QUERY_VAR_FIELD = 'lsdfe_repeater_field';
 
 	/** @var string WP_Query var carrying the scope setting. */
-	const QUERY_VAR_SCOPE = 'ldf_repeater_scope';
+	const QUERY_VAR_SCOPE = 'lsdfe_repeater_scope';
 
 	/** @var string Elementor control key — enable/disable toggle on Loop Grid. */
-	const CTRL_ENABLED = 'ldf_repeater_enabled';
+	const CTRL_ENABLED = 'lsdfe_repeater_enabled';
 
 	/** @var string Elementor control key — repeater field selector on Loop Grid. */
-	const CTRL_FIELD = 'ldf_repeater_field_name';
+	const CTRL_FIELD = 'lsdfe_repeater_field_name';
 
 	/** @var string Elementor control key — scope toggle on Loop Grid. */
-	const CTRL_SCOPE = 'ldf_repeater_current_only';
+	const CTRL_SCOPE = 'lsdfe_repeater_current_only';
 
 	// ------------------------------------------------------------------
 	// Constructor.
@@ -246,7 +246,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * Hooked onto the_post. Pushes or clears Row_Context as the loop advances.
 	 *
 	 * WP_Post::__construct() copies ALL properties from the stdClass (via
-	 * get_object_vars()), including our custom ldf_* properties, so we can
+	 * get_object_vars()), including our custom lsdfe_* properties, so we can
 	 * read them from the WP_Post object that the_post fires with.
 	 *
 	 * @param \WP_Post $post The post being set up by setup_postdata().
@@ -254,8 +254,8 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 */
 	public function sync_row_context( $post ): void {
 		// Only act on our virtual posts.
-		if ( ! isset( $post->ldf_provider_key )
-			|| self::PROVIDER_KEY !== $post->ldf_provider_key ) {
+		if ( ! isset( $post->lsdfe_provider_key )
+			|| self::PROVIDER_KEY !== $post->lsdfe_provider_key ) {
 
 			// If we previously had a context (loop just exited a repeater block),
 			// clear it so stale data doesn't bleed into subsequent normal posts.
@@ -266,9 +266,9 @@ final class Repeater_Provider implements Field_Type_Contract {
 		}
 
 		Row_Context::instance()->push(
-			(int) $post->ldf_parent_post_id,
+			(int) $post->lsdfe_parent_post_id,
 			self::PROVIDER_KEY,
-			(int) $post->ldf_row_index
+			(int) $post->lsdfe_row_index
 		);
 	}
 
@@ -343,7 +343,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 *
 	 * Setting filter = 'raw' tells get_post() to wrap this stdClass as a
 	 * WP_Post without a DB round-trip, and WP_Post::__construct() copies
-	 * ALL object vars — including our custom ldf_* properties.
+	 * ALL object vars — including our custom lsdfe_* properties.
 	 *
 	 * @param \WP_Post|\stdClass $post       The real parent post.
 	 * @param string             $field_name The ACF repeater field name.
@@ -379,11 +379,11 @@ final class Repeater_Provider implements Field_Type_Contract {
 		$v->filter = 'raw';
 
 		// ---- Custom properties preserved by WP_Post::__construct() ----
-		$v->ldf_provider_key   = self::PROVIDER_KEY;
-		$v->ldf_parent_post_id = $post->ID;
-		$v->ldf_row_index      = $index;
-		$v->ldf_repeater_field = $field_name;
-		$v->ldf_row_data       = $row;
+		$v->lsdfe_provider_key   = self::PROVIDER_KEY;
+		$v->lsdfe_parent_post_id = $post->ID;
+		$v->lsdfe_row_index      = $index;
+		$v->lsdfe_repeater_field = $field_name;
+		$v->lsdfe_row_data       = $row;
 
 		return $v;
 	}

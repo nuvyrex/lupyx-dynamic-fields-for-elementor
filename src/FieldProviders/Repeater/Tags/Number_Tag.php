@@ -28,7 +28,7 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-number';
+		return 'lsdfe-repeater-number';
 	}
 
 	/**

@@ -37,7 +37,7 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-url';
+		return 'lsdfe-repeater-url';
 	}
 
 	/**

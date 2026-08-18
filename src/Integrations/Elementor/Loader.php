@@ -113,7 +113,7 @@ final class Loader {
 		add_action(
 			'elementor/editor/before_enqueue_styles',
 			static function (): void {
-				$editor_css = LDF_DIR . 'assets/editor.css';
+				$editor_css = LSDFE_DIR . 'assets/editor.css';
 
 				// Only enqueue if the compiled stylesheet exists.
 				// During development it may not exist yet.
@@ -122,10 +122,10 @@ final class Loader {
 				}
 
 				wp_enqueue_style(
-					'ldf-editor',
-					LDF_URL . 'assets/editor.css',
+					'lsdfe-editor',
+					LSDFE_URL . 'assets/editor.css',
 					array(),
-					LDF_VERSION
+					LSDFE_VERSION
 				);
 			}
 		);

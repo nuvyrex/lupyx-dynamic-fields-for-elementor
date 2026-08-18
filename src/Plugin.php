@@ -74,9 +74,9 @@ final class Plugin {
 		add_action( 'elementor/init', array( $this, 'boot_elementor' ) );
 
 		// Record install date on first activation (idempotent; add_option no-ops if key exists).
-		add_option( 'ldf_install_date', gmdate( 'Y-m-d H:i:s' ) );
-		add_option( 'ldf_initial_version', LDF_VERSION );
-		update_option( 'ldf_version', LDF_VERSION );
+		add_option( 'lsdfe_install_date', gmdate( 'Y-m-d H:i:s' ) );
+		add_option( 'lsdfe_initial_version', LSDFE_VERSION );
+		update_option( 'lsdfe_version', LSDFE_VERSION );
 	}
 
 	/**

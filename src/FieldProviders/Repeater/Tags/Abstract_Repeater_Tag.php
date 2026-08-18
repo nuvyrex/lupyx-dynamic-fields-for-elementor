@@ -14,7 +14,7 @@
  *
  * ## Extending
  *  Subclasses must implement:
- *   - get_name()                  — Elementor tag slug (e.g. 'ldf-repeater-text')
+ *   - get_name()                  — Elementor tag slug (e.g. 'lsdfe-repeater-text')
  *   - get_title()                 — Human-readable label in the tag picker
  *   - get_categories()            — Elementor category constants array
  *   - get_supported_acf_types()   — ACF field type slugs for control filtering

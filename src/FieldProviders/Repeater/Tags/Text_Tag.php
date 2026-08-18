@@ -25,7 +25,7 @@ final class Text_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-text';
+		return 'lsdfe-repeater-text';
 	}
 
 	/**

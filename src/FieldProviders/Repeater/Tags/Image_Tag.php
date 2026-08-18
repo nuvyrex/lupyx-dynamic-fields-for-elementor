@@ -43,7 +43,7 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'ldf-repeater-image';
+		return 'lsdfe-repeater-image';
 	}
 
 	/**

@@ -20,13 +20,13 @@
  * just to share 25 lines. Document clearly and revisit in v2 if more Data_Tag
  * subclasses are added.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopDynamicFields\Runtime\Row_Context;
+use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LoopSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

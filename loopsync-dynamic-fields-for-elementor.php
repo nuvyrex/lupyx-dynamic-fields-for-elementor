@@ -1,19 +1,19 @@
 <?php
 /**
  * Plugin Name:       LoopSync Dynamic Fields for Elementor
- * Plugin URI:        https://github.com/yourvendor/loopsync-dynamic-fields-for-elementor
+ * Plugin URI:        https://github.com/nuvyrex/loopsync-dynamic-fields-for-elementor
  * Description:       Render ACF Pro field data (Repeater and more) inside Elementor Pro's Loop Grid widget — no code required. Built on a filter-driven Field Type Provider architecture for easy extension.
  * Version:           0.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
  * Author:            Your Name
- * Author URI:        https://yoursite.com
+ * Author URI:        https://github.com/nuvyrex
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       loopsync-dynamic-fields-for-elementor
  *
- * @package LoopDynamicFields
+ * @package LoopSyncDynamicFields
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -72,4 +72,4 @@ if ( file_exists( LDF_DIR . 'vendor/autoload.php' ) ) {
 // Bootstrap — hand off entirely to the Plugin singleton. Nothing else here.
 // ---------------------------------------------------------------------------
 
-\LoopDynamicFields\Plugin::instance();
+\LoopSyncDynamicFields\Plugin::instance();

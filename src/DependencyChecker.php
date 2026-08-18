@@ -7,10 +7,10 @@
  * booting any plugin logic; if it returns false, admin notices are queued
  * and nothing else runs — preventing fatal errors on misconfigured sites.
  *
- * @package LoopDynamicFields
+ * @package LoopSyncDynamicFields
  */
 
-namespace LoopDynamicFields;
+namespace LoopSyncDynamicFields;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

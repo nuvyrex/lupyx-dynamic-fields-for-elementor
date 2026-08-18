@@ -9,10 +9,10 @@
  * Providers register themselves via the loop_dynamic_fields/register_providers
  * action hook (see Plugin::boot_elementor and HOOKS.md).
  *
- * @package LoopDynamicFields\FieldProviders
+ * @package LoopSyncDynamicFields\FieldProviders
  */
 
-namespace LoopDynamicFields\FieldProviders;
+namespace LoopSyncDynamicFields\FieldProviders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -37,7 +37,7 @@ final class Provider_Registry {
 	 *
 	 * @var array<string, Field_Type_Contract>
 	 */
-	private array $providers = [];
+	private array $providers = array();
 
 	/**
 	 * Private constructor — use instance() instead.

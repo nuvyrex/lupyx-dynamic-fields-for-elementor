@@ -10,10 +10,10 @@
  * This class contains NO field-type logic, NO Elementor widget logic, and
  * NO ACF API calls. It wires things together and nothing else.
  *
- * @package LoopDynamicFields
+ * @package LoopSyncDynamicFields
  */
 
-namespace LoopDynamicFields;
+namespace LoopSyncDynamicFields;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -51,7 +51,7 @@ final class Plugin {
 	 * Hooks into plugins_loaded so all plugins are available before we check deps.
 	 */
 	private function __construct() {
-		add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ] );
+		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
 	}
 
 	/**
@@ -71,7 +71,7 @@ final class Plugin {
 		}
 
 		// All dependencies met; boot after Elementor itself has initialised.
-		add_action( 'elementor/init', [ $this, 'boot_elementor' ] );
+		add_action( 'elementor/init', array( $this, 'boot_elementor' ) );
 
 		// Record install date on first activation (idempotent; add_option no-ops if key exists).
 		add_option( 'ldf_install_date', gmdate( 'Y-m-d H:i:s' ) );

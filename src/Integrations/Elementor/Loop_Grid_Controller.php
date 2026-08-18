@@ -31,12 +31,12 @@
  *  - No concrete provider class is ever named.
  *  - All dispatch goes through Field_Type_Contract.
  *
- * @package LoopDynamicFields\Integrations\Elementor
+ * @package LoopSyncDynamicFields\Integrations\Elementor
  */
 
-namespace LoopDynamicFields\Integrations\Elementor;
+namespace LoopSyncDynamicFields\Integrations\Elementor;
 
-use LoopDynamicFields\FieldProviders\Provider_Registry;
+use LoopSyncDynamicFields\FieldProviders\Provider_Registry;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -68,17 +68,17 @@ final class Loop_Grid_Controller {
 		// Inject provider controls into the Loop Grid and Loop Carousel Query sections.
 		add_action(
 			'elementor/element/loop-grid/section_query/before_section_end',
-			[ $this, 'inject_provider_controls' ]
+			array( $this, 'inject_provider_controls' )
 		);
 		add_action(
 			'elementor/element/loop-carousel/section_query/before_section_end',
-			[ $this, 'inject_provider_controls' ]
+			array( $this, 'inject_provider_controls' )
 		);
 
 		// Route query args through every registered provider.
 		add_filter(
 			'elementor/query/query_args',
-			[ $this, 'dispatch_query_args' ],
+			array( $this, 'dispatch_query_args' ),
 			10,
 			2
 		);
@@ -87,7 +87,7 @@ final class Loop_Grid_Controller {
 		// Protected by each provider checking its own custom query var.
 		add_filter(
 			'the_posts',
-			[ $this, 'dispatch_post_list' ],
+			array( $this, 'dispatch_post_list' ),
 			10,
 			2
 		);

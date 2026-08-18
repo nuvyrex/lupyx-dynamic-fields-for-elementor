@@ -9,7 +9,7 @@
  * Direct access is blocked; the WP_UNINSTALL_PLUGIN constant is set only by the
  * WordPress uninstall routine.
  *
- * @package LoopDynamicFields
+ * @package LoopSyncDynamicFields
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

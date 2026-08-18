@@ -9,10 +9,10 @@
  *
  * Output is escaped with esc_html() as the value is always a plain string.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

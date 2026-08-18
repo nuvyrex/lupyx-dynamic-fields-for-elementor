@@ -5,10 +5,10 @@
  * Handles ACF sub-fields of types 'text' and 'textarea'.
  * Output is plain-text escaped with esc_html().
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

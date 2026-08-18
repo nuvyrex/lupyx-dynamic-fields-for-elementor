@@ -8,10 +8,10 @@
  * Listed under NUMBER_CATEGORY so it's available in Elementor controls that
  * accept numeric dynamic tags (e.g. counter widget end-value).
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

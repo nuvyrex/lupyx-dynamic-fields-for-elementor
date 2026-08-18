@@ -6,10 +6,10 @@
  * Output is HTML — escaped with wp_kses_post() to allow safe HTML tags while
  * stripping any malicious markup.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater\Tags
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater\Tags;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

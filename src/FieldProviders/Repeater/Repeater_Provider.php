@@ -19,14 +19,14 @@
  * Row_Context so Dynamic Tags can resolve sub-field values without any
  * negative-ID encoding / decoding magic.
  *
- * @package LoopDynamicFields\FieldProviders\Repeater
+ * @package LoopSyncDynamicFields\FieldProviders\Repeater
  */
 
-namespace LoopDynamicFields\FieldProviders\Repeater;
+namespace LoopSyncDynamicFields\FieldProviders\Repeater;
 
-use LoopDynamicFields\FieldProviders\Field_Type_Contract;
-use LoopDynamicFields\FieldProviders\Tag_Descriptor;
-use LoopDynamicFields\Runtime\Row_Context;
+use LoopSyncDynamicFields\FieldProviders\Field_Type_Contract;
+use LoopSyncDynamicFields\FieldProviders\Tag_Descriptor;
+use LoopSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

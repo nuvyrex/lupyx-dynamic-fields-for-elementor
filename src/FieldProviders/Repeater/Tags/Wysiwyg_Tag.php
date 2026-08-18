@@ -33,21 +33,21 @@ final class Wysiwyg_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: WYSIWYG', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: WYSIWYG', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_categories(): array {
-		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'wysiwyg', 'oembed' ];
+		return array( 'wysiwyg', 'oembed' );
 	}
 
 	/**

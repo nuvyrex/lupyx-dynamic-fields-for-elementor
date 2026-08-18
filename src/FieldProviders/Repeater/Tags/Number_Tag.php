@@ -35,7 +35,7 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Number', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Number', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -45,17 +45,17 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * TEXT_CATEGORY also included so it works in plain-text widget contexts.
 	 */
 	public function get_categories(): array {
-		return [
+		return array(
 			\Elementor\Modules\DynamicTags\Module::NUMBER_CATEGORY,
 			\Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY,
-		];
+		);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'number', 'range' ];
+		return array( 'number', 'range' );
 	}
 
 	/**

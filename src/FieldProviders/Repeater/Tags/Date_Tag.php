@@ -36,21 +36,21 @@ final class Date_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Date / Time', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Date / Time', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_categories(): array {
-		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'date_picker', 'date_time_picker', 'time_picker' ];
+		return array( 'date_picker', 'date_time_picker', 'time_picker' );
 	}
 
 	/**

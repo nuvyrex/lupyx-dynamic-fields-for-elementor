@@ -32,21 +32,21 @@ final class Text_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Text / Textarea', 'loop-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Text / Textarea', 'loopsync-dynamic-fields-for-elementor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_categories(): array {
-		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	protected function get_supported_acf_types(): array {
-		return [ 'text', 'textarea', 'email', 'password' ];
+		return array( 'text', 'textarea', 'email', 'password' );
 	}
 
 	/**

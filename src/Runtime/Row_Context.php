@@ -28,10 +28,10 @@
  * push() is called for each virtual post just before the_post() advances to it,
  * and clear() is called when the provider's post list is fully expanded.
  *
- * @package LoopSyncDynamicFields\Runtime
+ * @package LupyxSyncDynamicFields\Runtime
  */
 
-namespace LoopSyncDynamicFields\Runtime;
+namespace LupyxSyncDynamicFields\Runtime;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

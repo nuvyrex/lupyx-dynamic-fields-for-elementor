@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'yourvendor/loopsync-dynamic-fields-for-elementor',
+        'name' => 'nuvyrex/lupyx-dynamic-fields-for-elementor',
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => null,
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'yourvendor/loopsync-dynamic-fields-for-elementor' => array(
+        'nuvyrex/lupyx-dynamic-fields-for-elementor' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => null,

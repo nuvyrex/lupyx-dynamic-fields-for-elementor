@@ -1,5 +1,5 @@
 /**
- * LoopSync Dynamic Fields for Elementor — Editor Styles
+ * Lupyx Dynamic Fields for Elementor — Editor Styles
  *
  * Scoped to the Elementor editor only (enqueued on elementor/editor/before_enqueue_styles).
  * Improves the visual grouping of the grouped SELECT controls in Dynamic Tag panels.
@@ -9,13 +9,13 @@
 /* Loop Grid panel — repeater section separator                        */
 /* ------------------------------------------------------------------ */
 
-.elementor-control-lsdfe_repeater_enabled {
+.elementor-control-lpdfe_repeater_enabled {
   border-top: 1px solid #e6e9ec;
   padding-top: 8px;
   margin-top: 4px;
 }
 
-.elementor-control-lsdfe_repeater_enabled .elementor-control-title {
+.elementor-control-lpdfe_repeater_enabled .elementor-control-title {
   font-weight: 600;
 }
 
@@ -23,13 +23,13 @@
 /* Dynamic Tag panel — sub-field SELECT group labels                   */
 /* ------------------------------------------------------------------ */
 
-.elementor-control-lsdfe_repeater_sub_field optgroup {
+.elementor-control-lpdfe_repeater_sub_field optgroup {
   font-style: normal;
   font-weight: 600;
   color: #1a1a2e;
 }
 
-.elementor-control-lsdfe_repeater_sub_field option {
+.elementor-control-lpdfe_repeater_sub_field option {
   font-weight: normal;
   padding-left: 8px;
 }

@@ -20,13 +20,13 @@
  * just to share 25 lines. Document clearly and revisit in v2 if more Data_Tag
  * subclasses are added.
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopSyncDynamicFields\Runtime\Row_Context;
+use LupyxSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LupyxSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -43,14 +43,14 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'lsdfe-repeater-image';
+		return 'lpdfe-repeater-image';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Image', 'loopsync-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Image', 'lupyx-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -100,11 +100,11 @@ final class Image_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_T
 		$this->add_control(
 			Sub_Field_Resolver::CTRL_SUB_FIELD,
 			array(
-				'label'              => esc_html__( 'Image Sub-field', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'              => esc_html__( 'Image Sub-field', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'               => \Elementor\Controls_Manager::SELECT,
 				'groups'             => $grouped_options,
 				'default'            => '',
-				'description'        => esc_html__( 'Select the image sub-field from your ACF Repeater.', 'loopsync-dynamic-fields-for-elementor' ),
+				'description'        => esc_html__( 'Select the image sub-field from your ACF Repeater.', 'lupyx-dynamic-fields-for-elementor' ),
 				'frontend_available' => true,
 			)
 		);

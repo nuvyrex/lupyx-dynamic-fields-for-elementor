@@ -1,10 +1,10 @@
-=== LoopSync Dynamic Fields for Elementor ===
+=== Lupyx Dynamic Fields for Elementor ===
 Contributors: devnexus
 Tags: elementor, acf, repeater, loop grid, dynamic tags
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Render ACF Pro Repeater fields inside Elementor Pro's Loop Grid widget using ded
 
 == Description ==
 
-LoopSync Dynamic Fields for Elementor bridges the gap between **ACF Pro Repeater fields** and **Elementor Pro's Loop Grid widget**.
+Lupyx Dynamic Fields for Elementor bridges the gap between **ACF Pro Repeater fields** and **Elementor Pro's Loop Grid widget**.
 
 Elementor Pro's Loop Grid natively loops over WordPress posts, terms, or products. This plugin enables the Loop Grid to loop directly over rows of an ACF Pro Repeater field without creating mock posts, duplicate entries, or negative IDs.
 
@@ -41,7 +41,7 @@ Each repeater row seamlessly becomes an item in your Loop Grid, and dedicated El
 
 == Installation ==
 
-1. Upload the `loopsync-dynamic-fields-for-elementor` folder to the `/wp-content/plugins/` directory.
+1. Upload the `lupyx-dynamic-fields-for-elementor` folder to the `/wp-content/plugins/` directory.
 2. If installing from source, run `composer install --no-dev --optimize-autoloader` in the plugin directory to generate the autoloader.
 3. Activate the plugin through the **Plugins** menu in WordPress.
 4. Ensure **Elementor**, **Elementor Pro**, and **ACF Pro** are active.
@@ -88,6 +88,9 @@ Yes. The plugin uses an extensible `Field_Type_Contract` provider interface with
 
 
 == Upgrade Notice ==
+
+= 0.0.2 =
+Update plugin name, Slug & Prefix.
 
 = 0.0.1 =
 Update plugin name, Slug & Prefix.

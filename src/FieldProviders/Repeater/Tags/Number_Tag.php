@@ -8,10 +8,10 @@
  * Listed under NUMBER_CATEGORY so it's available in Elementor controls that
  * accept numeric dynamic tags (e.g. counter widget end-value).
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -28,14 +28,14 @@ final class Number_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'lsdfe-repeater-number';
+		return 'lpdfe-repeater-number';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Number', 'loopsync-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Number', 'lupyx-dynamic-fields-for-elementor' );
 	}
 
 	/**

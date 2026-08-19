@@ -86,9 +86,6 @@ Yes. The plugin uses an extensible `Field_Type_Contract` provider interface with
 
 == Changelog ==
 
-
-== Upgrade Notice ==
-
 = 0.0.2 =
 Update plugin name, Slug & Prefix.
 

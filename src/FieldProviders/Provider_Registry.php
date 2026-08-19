@@ -9,10 +9,10 @@
  * Providers register themselves via the loop_dynamic_fields/register_providers
  * action hook (see Plugin::boot_elementor and HOOKS.md).
  *
- * @package LoopSyncDynamicFields\FieldProviders
+ * @package LupyxSyncDynamicFields\FieldProviders
  */
 
-namespace LoopSyncDynamicFields\FieldProviders;
+namespace LupyxSyncDynamicFields\FieldProviders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

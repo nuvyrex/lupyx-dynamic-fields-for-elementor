@@ -31,12 +31,12 @@
  *  - No concrete provider class is ever named.
  *  - All dispatch goes through Field_Type_Contract.
  *
- * @package LoopSyncDynamicFields\Integrations\Elementor
+ * @package LupyxSyncDynamicFields\Integrations\Elementor
  */
 
-namespace LoopSyncDynamicFields\Integrations\Elementor;
+namespace LupyxSyncDynamicFields\Integrations\Elementor;
 
-use LoopSyncDynamicFields\FieldProviders\Provider_Registry;
+use LupyxSyncDynamicFields\FieldProviders\Provider_Registry;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

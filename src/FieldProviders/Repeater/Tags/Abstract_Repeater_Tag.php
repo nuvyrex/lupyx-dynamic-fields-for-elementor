@@ -14,19 +14,19 @@
  *
  * ## Extending
  *  Subclasses must implement:
- *   - get_name()                  — Elementor tag slug (e.g. 'lsdfe-repeater-text')
+ *   - get_name()                  — Elementor tag slug (e.g. 'lpdfe-repeater-text')
  *   - get_title()                 — Human-readable label in the tag picker
  *   - get_categories()            — Elementor category constants array
  *   - get_supported_acf_types()   — ACF field type slugs for control filtering
  *   - output_value( $value )      — Echo the value with correct escaping
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopSyncDynamicFields\Runtime\Row_Context;
+use LupyxSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LupyxSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -107,11 +107,11 @@ abstract class Abstract_Repeater_Tag extends \Elementor\Core\DynamicTags\Tag {
 		$this->add_control(
 			Sub_Field_Resolver::CTRL_SUB_FIELD,
 			array(
-				'label'              => esc_html__( 'Sub-field', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'              => esc_html__( 'Sub-field', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'               => \Elementor\Controls_Manager::SELECT,
 				'groups'             => $grouped_options,
 				'default'            => '',
-				'description'        => esc_html__( 'Select the repeater sub-field to display. Set the Loop Grid Preview Settings to a post of this type to see changes.', 'loopsync-dynamic-fields-for-elementor' ),
+				'description'        => esc_html__( 'Select the repeater sub-field to display. Set the Loop Grid Preview Settings to a post of this type to see changes.', 'lupyx-dynamic-fields-for-elementor' ),
 				'frontend_available' => true,
 			)
 		);

@@ -14,13 +14,13 @@
  *
  * get_value() normalises all of these to a plain URL string.
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
-use LoopSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
-use LoopSyncDynamicFields\Runtime\Row_Context;
+use LupyxSyncDynamicFields\FieldProviders\Repeater\Sub_Field_Resolver;
+use LupyxSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -37,14 +37,14 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'lsdfe-repeater-url';
+		return 'lpdfe-repeater-url';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: URL / Link', 'loopsync-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: URL / Link', 'lupyx-dynamic-fields-for-elementor' );
 	}
 
 	/**
@@ -97,11 +97,11 @@ final class Url_Tag extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag
 		$this->add_control(
 			Sub_Field_Resolver::CTRL_SUB_FIELD,
 			array(
-				'label'              => esc_html__( 'URL / Link Sub-field', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'              => esc_html__( 'URL / Link Sub-field', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'               => \Elementor\Controls_Manager::SELECT,
 				'groups'             => $grouped_options,
 				'default'            => '',
-				'description'        => esc_html__( 'Select the URL, Link, Page Link, or File sub-field from your ACF Repeater.', 'loopsync-dynamic-fields-for-elementor' ),
+				'description'        => esc_html__( 'Select the URL, Link, Page Link, or File sub-field from your ACF Repeater.', 'lupyx-dynamic-fields-for-elementor' ),
 				'frontend_available' => true,
 			)
 		);

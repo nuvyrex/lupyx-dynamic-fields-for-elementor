@@ -13,10 +13,10 @@
  *  - PHP interfaces place no constraint on what the implementing class extends,
  *    so tag classes can still extend Elementor base classes as required.
  *
- * @package LoopSyncDynamicFields\FieldProviders
+ * @package LupyxSyncDynamicFields\FieldProviders
  */
 
-namespace LoopSyncDynamicFields\FieldProviders;
+namespace LupyxSyncDynamicFields\FieldProviders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

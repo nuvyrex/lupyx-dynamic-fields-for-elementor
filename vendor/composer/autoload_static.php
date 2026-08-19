@@ -9,12 +9,12 @@ class ComposerStaticInitc0874088495c6291b1e551663d758684
     public static $prefixLengthsPsr4 = array (
         'L' =>
         array (
-            'LoopSyncDynamicFields\\' => 18,
+            'LupyxSyncDynamicFields\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'LoopSyncDynamicFields\\' =>
+        'LupyxSyncDynamicFields\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -22,24 +22,24 @@ class ComposerStaticInitc0874088495c6291b1e551663d758684
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'LoopSyncDynamicFields\\DependencyChecker' => __DIR__ . '/../..' . '/src/DependencyChecker.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Field_Type_Contract' => __DIR__ . '/../..' . '/src/FieldProviders/Field_Type_Contract.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Provider_Registry' => __DIR__ . '/../..' . '/src/FieldProviders/Provider_Registry.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Repeater_Provider' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Repeater_Provider.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Sub_Field_Resolver' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Sub_Field_Resolver.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Abstract_Repeater_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Abstract_Repeater_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Date_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Date_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Image_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Image_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Number_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Number_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Text_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Text_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Url_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Url_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Wysiwyg_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Wysiwyg_Tag.php',
-        'LoopSyncDynamicFields\\FieldProviders\\Tag_Descriptor' => __DIR__ . '/../..' . '/src/FieldProviders/Tag_Descriptor.php',
-        'LoopSyncDynamicFields\\Integrations\\Elementor\\Loader' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Loader.php',
-        'LoopSyncDynamicFields\\Integrations\\Elementor\\Loop_Grid_Controller' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Loop_Grid_Controller.php',
-        'LoopSyncDynamicFields\\Integrations\\Elementor\\Tag_Registrar' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Tag_Registrar.php',
-        'LoopSyncDynamicFields\\Plugin' => __DIR__ . '/../..' . '/src/Plugin.php',
-        'LoopSyncDynamicFields\\Runtime\\Row_Context' => __DIR__ . '/../..' . '/src/Runtime/Row_Context.php',
+        'LupyxSyncDynamicFields\\DependencyChecker' => __DIR__ . '/../..' . '/src/DependencyChecker.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Field_Type_Contract' => __DIR__ . '/../..' . '/src/FieldProviders/Field_Type_Contract.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Provider_Registry' => __DIR__ . '/../..' . '/src/FieldProviders/Provider_Registry.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Repeater_Provider' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Repeater_Provider.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Sub_Field_Resolver' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Sub_Field_Resolver.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Abstract_Repeater_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Abstract_Repeater_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Date_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Date_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Image_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Image_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Number_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Number_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Text_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Text_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Url_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Url_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Repeater\\Tags\\Wysiwyg_Tag' => __DIR__ . '/../..' . '/src/FieldProviders/Repeater/Tags/Wysiwyg_Tag.php',
+        'LupyxSyncDynamicFields\\FieldProviders\\Tag_Descriptor' => __DIR__ . '/../..' . '/src/FieldProviders/Tag_Descriptor.php',
+        'LupyxSyncDynamicFields\\Integrations\\Elementor\\Loader' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Loader.php',
+        'LupyxSyncDynamicFields\\Integrations\\Elementor\\Loop_Grid_Controller' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Loop_Grid_Controller.php',
+        'LupyxSyncDynamicFields\\Integrations\\Elementor\\Tag_Registrar' => __DIR__ . '/../..' . '/src/Integrations/Elementor/Tag_Registrar.php',
+        'LupyxSyncDynamicFields\\Plugin' => __DIR__ . '/../..' . '/src/Plugin.php',
+        'LupyxSyncDynamicFields\\Runtime\\Row_Context' => __DIR__ . '/../..' . '/src/Runtime/Row_Context.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

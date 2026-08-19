@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'LoopSyncDynamicFields\\' => array($baseDir . '/src'),
+    'LupyxSyncDynamicFields\\' => array($baseDir . '/src'),
 );

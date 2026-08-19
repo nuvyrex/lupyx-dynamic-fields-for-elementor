@@ -6,10 +6,10 @@
  * Output is HTML — escaped with wp_kses_post() to allow safe HTML tags while
  * stripping any malicious markup.
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -26,14 +26,14 @@ final class Wysiwyg_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'lsdfe-repeater-wysiwyg';
+		return 'lpdfe-repeater-wysiwyg';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: WYSIWYG', 'loopsync-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: WYSIWYG', 'lupyx-dynamic-fields-for-elementor' );
 	}
 
 	/**

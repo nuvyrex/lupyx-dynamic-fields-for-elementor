@@ -10,10 +10,10 @@
  * gives us a typed, self-documenting API that can be extended with additional
  * metadata (e.g. icon, category overrides) in future without changing the contract.
  *
- * @package LoopSyncDynamicFields\FieldProviders
+ * @package LupyxSyncDynamicFields\FieldProviders
  */
 
-namespace LoopSyncDynamicFields\FieldProviders;
+namespace LupyxSyncDynamicFields\FieldProviders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

@@ -12,12 +12,12 @@
  *  - Driven entirely by Field_Type_Contract::get_tag_descriptors()
  *    and Tag_Descriptor::get_tag_class_name().
  *
- * @package LoopSyncDynamicFields\Integrations\Elementor
+ * @package LupyxSyncDynamicFields\Integrations\Elementor
  */
 
-namespace LoopSyncDynamicFields\Integrations\Elementor;
+namespace LupyxSyncDynamicFields\Integrations\Elementor;
 
-use LoopSyncDynamicFields\FieldProviders\Provider_Registry;
+use LupyxSyncDynamicFields\FieldProviders\Provider_Registry;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

@@ -12,21 +12,21 @@
  * stdClass "virtual posts" — one per repeater row. Each virtual post:
  *   - Carries the real parent post ID as $post->ID (positive, valid WP ID)
  *   - Has filter = 'raw' so WP_Post wraps it without a DB round-trip
- *   - Carries lsdfe_provider_key, lsdfe_row_index, lsdfe_parent_post_id as custom
+ *   - Carries lpdfe_provider_key, lpdfe_row_index, lpdfe_parent_post_id as custom
  *     properties (preserved by WP_Post::__construct via get_object_vars())
  *
  * The the_post action (sync_row_context) reads these properties and pushes
  * Row_Context so Dynamic Tags can resolve sub-field values without any
  * negative-ID encoding / decoding magic.
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater;
 
-use LoopSyncDynamicFields\FieldProviders\Field_Type_Contract;
-use LoopSyncDynamicFields\FieldProviders\Tag_Descriptor;
-use LoopSyncDynamicFields\Runtime\Row_Context;
+use LupyxSyncDynamicFields\FieldProviders\Field_Type_Contract;
+use LupyxSyncDynamicFields\FieldProviders\Tag_Descriptor;
+use LupyxSyncDynamicFields\Runtime\Row_Context;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -42,29 +42,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Repeater_Provider implements Field_Type_Contract {
 
 	// ------------------------------------------------------------------
-	// Constants — all prefixed lsdfe_ to avoid collisions.
+	// Constants — all prefixed lpdfe_ to avoid collisions.
 	// ------------------------------------------------------------------
 
 	/** @var string Provider key — used by Provider_Registry as the index. */
 	const PROVIDER_KEY = 'repeater';
 
 	/** @var string WP_Query var marking a query as repeater-expanded. */
-	const QUERY_VAR_ACTIVE = 'lsdfe_repeater_active';
+	const QUERY_VAR_ACTIVE = 'lpdfe_repeater_active';
 
 	/** @var string WP_Query var carrying the repeater field name. */
-	const QUERY_VAR_FIELD = 'lsdfe_repeater_field';
+	const QUERY_VAR_FIELD = 'lpdfe_repeater_field';
 
 	/** @var string WP_Query var carrying the scope setting. */
-	const QUERY_VAR_SCOPE = 'lsdfe_repeater_scope';
+	const QUERY_VAR_SCOPE = 'lpdfe_repeater_scope';
 
 	/** @var string Elementor control key — enable/disable toggle on Loop Grid. */
-	const CTRL_ENABLED = 'lsdfe_repeater_enabled';
+	const CTRL_ENABLED = 'lpdfe_repeater_enabled';
 
 	/** @var string Elementor control key — repeater field selector on Loop Grid. */
-	const CTRL_FIELD = 'lsdfe_repeater_field_name';
+	const CTRL_FIELD = 'lpdfe_repeater_field_name';
 
 	/** @var string Elementor control key — scope toggle on Loop Grid. */
-	const CTRL_SCOPE = 'lsdfe_repeater_current_only';
+	const CTRL_SCOPE = 'lpdfe_repeater_current_only';
 
 	// ------------------------------------------------------------------
 	// Constructor.
@@ -126,8 +126,8 @@ final class Repeater_Provider implements Field_Type_Contract {
 		$element->add_control(
 			self::CTRL_ENABLED,
 			array(
-				'label'        => esc_html__( 'Use ACF Repeater', 'loopsync-dynamic-fields-for-elementor' ),
-				'description'  => esc_html__( 'Loop over ACF Repeater rows instead of posts.', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'        => esc_html__( 'Use ACF Repeater', 'lupyx-dynamic-fields-for-elementor' ),
+				'description'  => esc_html__( 'Loop over ACF Repeater rows instead of posts.', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
@@ -137,8 +137,8 @@ final class Repeater_Provider implements Field_Type_Contract {
 		$element->add_control(
 			self::CTRL_FIELD,
 			array(
-				'label'       => esc_html__( 'ACF Repeater Field', 'loopsync-dynamic-fields-for-elementor' ),
-				'description' => esc_html__( 'Select the Repeater field whose rows become Loop Grid items.', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'       => esc_html__( 'ACF Repeater Field', 'lupyx-dynamic-fields-for-elementor' ),
+				'description' => esc_html__( 'Select the Repeater field whose rows become Loop Grid items.', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'        => \Elementor\Controls_Manager::SELECT,
 				'options'     => $this->get_repeater_field_options(),
 				'default'     => '',
@@ -149,8 +149,8 @@ final class Repeater_Provider implements Field_Type_Contract {
 		$element->add_control(
 			self::CTRL_SCOPE,
 			array(
-				'label'        => esc_html__( 'Current Post Only', 'loopsync-dynamic-fields-for-elementor' ),
-				'description'  => esc_html__( 'Show rows from the currently viewed post. Disable to aggregate rows from all posts matched by the Loop Grid query.', 'loopsync-dynamic-fields-for-elementor' ),
+				'label'        => esc_html__( 'Current Post Only', 'lupyx-dynamic-fields-for-elementor' ),
+				'description'  => esc_html__( 'Show rows from the currently viewed post. Disable to aggregate rows from all posts matched by the Loop Grid query.', 'lupyx-dynamic-fields-for-elementor' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 				'return_value' => 'yes',
@@ -246,7 +246,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * Hooked onto the_post. Pushes or clears Row_Context as the loop advances.
 	 *
 	 * WP_Post::__construct() copies ALL properties from the stdClass (via
-	 * get_object_vars()), including our custom lsdfe_* properties, so we can
+	 * get_object_vars()), including our custom lpdfe_* properties, so we can
 	 * read them from the WP_Post object that the_post fires with.
 	 *
 	 * @param \WP_Post $post The post being set up by setup_postdata().
@@ -254,8 +254,8 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 */
 	public function sync_row_context( $post ): void {
 		// Only act on our virtual posts.
-		if ( ! isset( $post->lsdfe_provider_key )
-			|| self::PROVIDER_KEY !== $post->lsdfe_provider_key ) {
+		if ( ! isset( $post->lpdfe_provider_key )
+			|| self::PROVIDER_KEY !== $post->lpdfe_provider_key ) {
 
 			// If we previously had a context (loop just exited a repeater block),
 			// clear it so stale data doesn't bleed into subsequent normal posts.
@@ -266,9 +266,9 @@ final class Repeater_Provider implements Field_Type_Contract {
 		}
 
 		Row_Context::instance()->push(
-			(int) $post->lsdfe_parent_post_id,
+			(int) $post->lpdfe_parent_post_id,
 			self::PROVIDER_KEY,
-			(int) $post->lsdfe_row_index
+			(int) $post->lpdfe_row_index
 		);
 	}
 
@@ -285,7 +285,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 * @return array<string, string> field_name => label map.
 	 */
 	private function get_repeater_field_options(): array {
-		$options = array( '' => esc_html__( '— Select a Repeater Field —', 'loopsync-dynamic-fields-for-elementor' ) );
+		$options = array( '' => esc_html__( '— Select a Repeater Field —', 'lupyx-dynamic-fields-for-elementor' ) );
 
 		if ( ! function_exists( 'acf_get_field_groups' ) || ! function_exists( 'acf_get_fields' ) ) {
 			return $options;
@@ -343,7 +343,7 @@ final class Repeater_Provider implements Field_Type_Contract {
 	 *
 	 * Setting filter = 'raw' tells get_post() to wrap this stdClass as a
 	 * WP_Post without a DB round-trip, and WP_Post::__construct() copies
-	 * ALL object vars — including our custom lsdfe_* properties.
+	 * ALL object vars — including our custom lpdfe_* properties.
 	 *
 	 * @param \WP_Post|\stdClass $post       The real parent post.
 	 * @param string             $field_name The ACF repeater field name.
@@ -379,11 +379,11 @@ final class Repeater_Provider implements Field_Type_Contract {
 		$v->filter = 'raw';
 
 		// ---- Custom properties preserved by WP_Post::__construct() ----
-		$v->lsdfe_provider_key   = self::PROVIDER_KEY;
-		$v->lsdfe_parent_post_id = $post->ID;
-		$v->lsdfe_row_index      = $index;
-		$v->lsdfe_repeater_field = $field_name;
-		$v->lsdfe_row_data       = $row;
+		$v->lpdfe_provider_key   = self::PROVIDER_KEY;
+		$v->lpdfe_parent_post_id = $post->ID;
+		$v->lpdfe_row_index      = $index;
+		$v->lpdfe_repeater_field = $field_name;
+		$v->lpdfe_row_data       = $row;
 
 		return $v;
 	}

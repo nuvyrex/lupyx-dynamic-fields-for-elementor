@@ -1,5 +1,5 @@
 {
-  "name": "yourvendor/loopsync-dynamic-fields-for-elementor",
+  "name": "nuvyrex/lupyx-dynamic-fields-for-elementor",
   "description": "Render ACF Pro field data inside Elementor Pro's Loop Grid widget using a filter-driven Field Type Provider architecture.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
@@ -8,7 +8,7 @@
   },
   "autoload": {
     "psr-4": {
-      "LoopSyncDynamicFields\\": "src/"
+      "LupyxSyncDynamicFields\\": "src/"
     }
   },
   "config": {

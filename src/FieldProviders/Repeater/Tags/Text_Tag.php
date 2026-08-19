@@ -5,10 +5,10 @@
  * Handles ACF sub-fields of types 'text' and 'textarea'.
  * Output is plain-text escaped with esc_html().
  *
- * @package LoopSyncDynamicFields\FieldProviders\Repeater\Tags
+ * @package LupyxSyncDynamicFields\FieldProviders\Repeater\Tags
  */
 
-namespace LoopSyncDynamicFields\FieldProviders\Repeater\Tags;
+namespace LupyxSyncDynamicFields\FieldProviders\Repeater\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -25,14 +25,14 @@ final class Text_Tag extends Abstract_Repeater_Tag {
 	 * {@inheritDoc}
 	 */
 	public function get_name(): string {
-		return 'lsdfe-repeater-text';
+		return 'lpdfe-repeater-text';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Repeater: Text / Textarea', 'loopsync-dynamic-fields-for-elementor' );
+		return esc_html__( 'Repeater: Text / Textarea', 'lupyx-dynamic-fields-for-elementor' );
 	}
 
 	/**
